@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VIP Strategy Access</title>
+<title>VIP Access</title>
 
 <!-- META PIXEL -->
 <script>
@@ -26,7 +26,7 @@ fbq('track', 'PageView');
 body{
   margin:0;
   font-family:Arial, sans-serif;
-  background: radial-gradient(circle, #001a1a, #000);
+  background: radial-gradient(circle at top, #002222, #000);
   color:white;
   display:flex;
   justify-content:center;
@@ -34,87 +34,78 @@ body{
   height:100vh;
 }
 
-/* Card */
+/* MAIN CARD */
 .container{
   background:#000;
-  padding:30px;
+  padding:30px 25px;
   border-radius:25px;
   text-align:center;
-  width:320px;
-  box-shadow:0 0 40px rgba(0,255,200,0.3);
+  width:340px;
+  box-shadow:0 0 50px rgba(0,255,200,0.2);
 }
 
-/* Profile Image */
+/* PROFILE IMAGE */
 .profile{
-  width:140px;
-  height:140px;
+  width:150px;
+  height:150px;
   border-radius:50%;
-  border:5px solid gold;
+  border:6px solid #ffcc00;
   margin:auto;
   overflow:hidden;
   box-shadow:0 0 30px #00ffcc;
+  animation:glow 1.5s infinite alternate;
 }
-
 .profile img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
 
-/* Headings */
-h2{
+/* TITLE */
+.title{
   margin-top:20px;
   font-size:22px;
+  font-weight:bold;
 }
 
+/* HIGHLIGHT TEXT */
 .highlight{
   color:#ffcc00;
-  font-weight:bold;
   font-size:20px;
+  font-weight:bold;
   margin:10px 0;
 }
 
+/* SUBTEXT */
 .subtext{
   color:#ccc;
-  font-size:14px;
-  margin:15px 0;
+  font-size:15px;
+  margin:15px 0 25px;
 }
 
-/* Buttons */
+/* BUTTON */
 .btn{
-  display:block;
-  margin:10px auto;
+  background:#ffcc00;
+  color:#000;
   padding:15px;
   width:80%;
   border:none;
-  border-radius:12px;
+  border-radius:15px;
   font-size:18px;
+  font-weight:bold;
   cursor:pointer;
   transition:0.3s;
 }
 
-.join{
-  background:#ffcc00;
-  color:#000;
-}
-
-.subscribe{
-  background:#00ffcc;
-  color:#000;
-}
-
 .btn:hover{
   transform:scale(1.05);
+  box-shadow:0 0 20px #ffcc00;
 }
 
-/* Glow Animation */
+/* GLOW */
 @keyframes glow{
-  from{box-shadow:0 0 10px #00ffcc;}
-  to{box-shadow:0 0 25px #00ffcc;}
-}
-
-.profile{
-  animation:glow 1.5s infinite alternate;
+  from{box-shadow:0 0 15px #00ffcc;}
+  to{box-shadow:0 0 35px #00ffcc;}
 }
 </style>
 
@@ -124,13 +115,13 @@ h2{
 
 <div class="container">
 
-  <!-- IMAGE -->
+  <!-- PROFILE -->
   <div class="profile">
-    <img src="https://i.ibb.co/0jqHpnp/hacker.jpg" alt="profile">
+    <img src="https://i.ibb.co/0jqHpnp/hacker.jpg">
   </div>
 
   <!-- TEXT -->
-  <h2>STRATEGY PREDICTION SHOT 💥</h2>
+  <div class="title">NUMBERS PREDICTION SHOT 💥</div>
 
   <div class="highlight">Recover all your Losses</div>
   <div class="highlight">Get 95% accurate Shots 🔥</div>
@@ -139,28 +130,22 @@ h2{
     Join my exclusive Telegram group for premium tips, updates & more excitement!
   </div>
 
-  <!-- BUTTONS -->
-  <button class="btn join" onclick="joinNow()">
-    🚀 Join Now
-  </button>
-
-  <button class="btn subscribe" onclick="subscribeNow()">
-    🔔 Subscribe
+  <!-- SINGLE BUTTON -->
+  <button class="btn" onclick="joinNow()">
+    Join Now
   </button>
 
 </div>
 
 <script>
-// JOIN BUTTON → LEAD EVENT
+// BUTTON CLICK → LEAD + SUBSCRIBE
 function joinNow(){
-  fbq('track', 'Lead');
-  window.location.href = "https://t.me/yourlink";
-}
+  fbq('track','Lead');
+  fbq('track','Subscribe');
 
-// SUBSCRIBE BUTTON → SUBSCRIBE EVENT
-function subscribeNow(){
-  fbq('track', 'Subscribe');
-  window.location.href = "https://t.me/yourlink";
+  setTimeout(function(){
+    window.location.href="https://t.me/yourlink";
+  }, 500);
 }
 </script>
 
