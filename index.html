@@ -138,9 +138,14 @@ body{
 </div>
 
 <script>
-// BUTTON CLICK → LEAD + SUBSCRIBE
+// FIX: Prevent multiple firing
+let clicked = false;
+
 function joinNow(){
-  fbq('track','Lead');
+  if(clicked) return; // stop duplicate clicks
+  clicked = true;
+
+  // ONLY Subscribe event
   fbq('track','Subscribe');
 
   setTimeout(function(){
