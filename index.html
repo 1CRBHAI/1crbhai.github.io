@@ -155,7 +155,7 @@ body{
   box-shadow:0 0 20px #00bfff;
 }
 
-/* BOTTOM TEXT */
+/* FOOTER */
 .footer{
   position:fixed;
   bottom:12px;
@@ -166,9 +166,17 @@ body{
   letter-spacing:1px;
 }
 
-.footer span{
+/* FIXED CLICKABLE USERNAME */
+.footer a{
   color:#00ffcc;
   font-weight:bold;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.footer a:hover{
+  color:#ffcc00;
+  text-shadow:0 0 10px #ffcc00;
 }
 
 /* GLOW */
@@ -223,7 +231,10 @@ body{
 
 <!-- FOOTER -->
 <div class="footer">
-  Ads Managed By <span>@crbhaiii1</span>
+  Ads Managed By 
+  <a href="https://t.me/crbhaiii1" target="_blank">
+    @crbhaiii1
+  </a>
 </div>
 
 <script>
@@ -270,10 +281,10 @@ function changeNotification(){
   let randomName = names[Math.floor(Math.random() * names.length)];
 
   document.getElementById("notify").innerHTML =
-    "🔥 <span>" + randomName + "</span> joined VIP ✅";
+    "🔥 <span>" + randomName + "</span> joined VIP & received winning shot ✅";
 }
 
-// Change every 3 seconds
+// Change notification every 3 seconds
 setInterval(changeNotification,3000);
 
 </script>
