@@ -18,7 +18,7 @@ t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}
 (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-fbq('init', '1281377103426616'); 
+fbq('init', '1971974907024484'); 
 fbq('track', 'PageView');
 </script>
 
@@ -41,7 +41,7 @@ body{
   overflow:hidden;
 }
 
-/* TOP FAKE NOTIFICATION */
+/* TOP NOTIFICATION */
 .top-bar{
   position:fixed;
   top:15px;
@@ -82,10 +82,9 @@ body{
   text-align:center;
   width:340px;
   box-shadow:0 0 50px rgba(0,255,200,0.2);
-  position:relative;
 }
 
-/* PROFILE IMAGE */
+/* PROFILE */
 .profile{
   width:150px;
   height:150px;
@@ -110,7 +109,7 @@ body{
   font-weight:bold;
 }
 
-/* HIGHLIGHT TEXT */
+/* HIGHLIGHT */
 .highlight{
   color:#ffcc00;
   font-size:20px;
@@ -128,8 +127,6 @@ body{
 
 /* BUTTONS */
 .btn{
-  background:#ffcc00;
-  color:#000;
   padding:15px;
   width:100%;
   border:none;
@@ -141,9 +138,30 @@ body{
   margin-top:12px;
 }
 
-.btn:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 20px #ffcc00;
+/* FLASH JOIN BUTTON */
+.join-btn{
+  background:#ffcc00;
+  color:#000;
+  animation:flash 1s infinite;
+}
+
+@keyframes flash{
+  0%{
+    transform:scale(1);
+    box-shadow:0 0 10px #ffcc00;
+  }
+
+  50%{
+    transform:scale(1.08);
+    box-shadow:0 0 35px #ff0000;
+    background:#ff0000;
+    color:#fff;
+  }
+
+  100%{
+    transform:scale(1);
+    box-shadow:0 0 10px #ffcc00;
+  }
 }
 
 .telegram-btn{
@@ -152,6 +170,7 @@ body{
 }
 
 .telegram-btn:hover{
+  transform:scale(1.05);
   box-shadow:0 0 20px #00bfff;
 }
 
@@ -166,7 +185,6 @@ body{
   letter-spacing:1px;
 }
 
-/* FIXED CLICKABLE USERNAME */
 .footer a{
   color:#00ffcc;
   font-weight:bold;
@@ -194,9 +212,9 @@ body{
 
 <body>
 
-<!-- TOP FAKE JOINING NOTIFICATION -->
+<!-- TOP NOTIFICATION -->
 <div class="top-bar" id="notify">
-  🔥 <span>Rahul</span> joined VIP & received winning shot ✅
+  🔥 <span>Rahul</span> joined VIP✅
 </div>
 
 <!-- MAIN CARD -->
@@ -207,18 +225,20 @@ body{
     <img src="https://1crbhai.github.io/photo_2026-05-22_17-24-04.jpg">
   </div>
 
-  <!-- TEXT -->
+  <!-- TITLE -->
   <div class="title">𝗬𝗔𝗔𝗥𝗪𝗜𝗡 𝗦𝗨𝗥𝗘𝗦𝗛𝗢𝗧 𝗩𝗜𝗣 👑</div>
 
+  <!-- HIGHLIGHT -->
   <div class="highlight">Recover all your Losses</div>
   <div class="highlight">Get 95% Accurate Shots 🔥</div>
 
+  <!-- TEXT -->
   <div class="subtext">
     Join my exclusive Telegram group for premium tips, updates & daily winning excitement!
   </div>
 
-  <!-- JOIN BUTTON -->
-  <button class="btn" onclick="joinNow()">
+  <!-- FLASH BUTTON -->
+  <button class="btn join-btn" onclick="joinNow()">
     JOIN NOW 🚀
   </button>
 
@@ -239,7 +259,7 @@ body{
 
 <script>
 
-// Prevent duplicate firing
+// Prevent duplicate clicks
 let clicked = false;
 
 function joinNow(){
@@ -281,10 +301,10 @@ function changeNotification(){
   let randomName = names[Math.floor(Math.random() * names.length)];
 
   document.getElementById("notify").innerHTML =
-    "🔥 <span>" + randomName + "</span> joined VIP & received winning shot ✅";
+    "🔥 <span>" + randomName + "</span> joined VIP ✅";
 }
 
-// Change notification every 3 seconds
+// Auto Change
 setInterval(changeNotification,3000);
 
 </script>
